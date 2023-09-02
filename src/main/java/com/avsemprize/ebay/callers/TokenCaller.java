@@ -1,5 +1,6 @@
 package com.avsemprize.ebay.callers;
 
+import com.avsemprize.ebay.config.EbayConfig;
 import com.avsemprize.ebay.interceptor.EbayTokenInterceptor;
 import com.avsemprize.ebay.models.token.EbayToken;
 import com.avsemprize.ebay.services.EbayTokenAPI;
@@ -20,13 +21,13 @@ import java.util.Base64;
 public class TokenCaller {
 
     private OkHttpClient client;
-    private String clientId, clientSecret;
+    private final String clientId, clientSecret;
     private static final String BASE_URL = "https://api.sandbox.ebay.com/";
     private EbayTokenAPI ebayTokenAPI;
 
-    public TokenCaller(String clientId, String clientSecret, String scopes){
-        this.clientId = clientId;
-        this.clientSecret = clientSecret;
+    public TokenCaller(EbayConfig config, String scopes){
+        this.clientId = config.getClientId();
+        this.clientSecret = config.getClientSecret();
         this.client = new OkHttpClient.Builder()
                 .addInterceptor(new EbayTokenInterceptor(clientId, clientSecret, scopes))
                 .build();

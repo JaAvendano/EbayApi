@@ -2,19 +2,15 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.avsemprize</groupId>
+  <groupId>com.avsemprize.ebay</groupId>
   <artifactId>Ebay</artifactId>
   <version>0.0.0</version>
   <packaging>jar</packaging>
-
   <name>Ebay</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source> <!-- Adjust to your Java version -->
-    <maven.compiler.target>1.8</maven.compiler.target> <!-- Adjust to your Java version -->
-
   </properties>
 
   <dependencies>
@@ -30,15 +26,6 @@
       <artifactId>gson</artifactId>
       <version>2.10.1</version>
     </dependency>
-    <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
-    <dependency>
-      <groupId>javax.annotation</groupId>
-      <artifactId>javax.annotation-api</artifactId>
-      <version>1.3.2</version>
-      <scope>provided</scope> <!-- This should be 'provided' for annotations -->
-
-    </dependency>
-
 
     <!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson -->
     <dependency>
@@ -55,12 +42,6 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/io.reactivex.rxjava2/rxjava -->
-    <dependency>
-    <groupId>io.reactivex.rxjava2</groupId>
-    <artifactId>rxjava</artifactId>
-    <version>2.2.21</version>
-    </dependency>
   </dependencies>
   <build>
     <plugins>
