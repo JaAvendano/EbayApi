@@ -4,7 +4,7 @@
 
   <groupId>com.avsemprize.ebay</groupId>
   <artifactId>Ebay</artifactId>
-  <version>0.0.0</version>
+  <version>0.0.1</version>
   <packaging>jar</packaging>
   <name>Ebay</name>
   <url>http://maven.apache.org</url>

@@ -18,14 +18,15 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
-public class TokenCaller {
+public class EbayTokenCaller {
 
     private OkHttpClient client;
     private final String clientId, clientSecret;
-    private static final String BASE_URL = "https://api.sandbox.ebay.com/";
+    public static final String BASE_URL = "https://api.ebay.com/";
+    public static final String BASE_SANDBOX_URL = "https://api.sandbox.ebay.com/";
     private EbayTokenAPI ebayTokenAPI;
 
-    public TokenCaller(EbayConfig config, String scopes){
+    public EbayTokenCaller(EbayConfig config,String baseUrl, String scopes){
         this.clientId = config.getClientId();
         this.clientSecret = config.getClientSecret();
         this.client = new OkHttpClient.Builder()
@@ -33,7 +34,7 @@ public class TokenCaller {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

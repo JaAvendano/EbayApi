@@ -12,19 +12,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.util.Map;
 
-public class EbayCatalogApiCaller{
+public class EbayBrowserApiCaller {
     public static final String VIEW_PUBLIC_DATA_SCOPE = "https://api.ebay.com/oauth/api_scope";
-    private static final String BASE_URL = "https://api.sandbox.ebay.com/";
+    public static final String BASE_URL = "https://api.ebay.com/";
+    public static final String BASE_SANDBOX_URL = "https://api.sandbox.ebay.com/";
 
     private EbayCatalogAPI catalogAPI;
 
-    public EbayCatalogApiCaller(EbayToken token){
+    public EbayBrowserApiCaller(EbayToken token, String baseUrl){
         OkHttpClient client = new OkHttpClient.Builder()
                 .addInterceptor(new EbayInterceptor(token.getAccess_token()))
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();
